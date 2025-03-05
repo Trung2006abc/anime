@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="tiiu.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: black;
+        }
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            opacity: 0;
+            box-shadow: 0 0 5px white;
+            animation: twinkle 2s infinite, fall linear infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10vh); opacity: 1; }
+            100% { transform: translateY(110vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        const numStars = 150;
+        
+        for (let i = 0; i < numStars; i++) {
+            let star = document.createElement("div");
+            star.className = "star";
+            document.body.appendChild(star);
+            
+            let x = Math.random() * window.innerWidth;
+            let delay = Math.random() * 5;
+            let size = Math.random() * 3 + 1;
+            let duration = Math.random() * 5 + 3;
+            
+            star.style.left = `${x}px`;
+            star.style.top = `${-Math.random() * 100}px`;
+            star.style.animationDelay = `-${delay}s`;
+            star.style.animationDuration = `${duration}s, ${duration}s`;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+        }
+    </script>
+    <table>
+        <tr>
+            <td><a href="./kurumi.html">Tokisaki Kurumi</a></a></td>
+            <td><a href="./nino.html">Nakano Nino</a></td>
+            <td><a href="./furina.html">Furina</a> </td>
+        </tr>
+    </table>
+</body>
+</html>
